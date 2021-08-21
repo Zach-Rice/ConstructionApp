@@ -15,7 +15,6 @@ namespace ConstrucApp
             InitializeComponent();
             DeckBase newDeck = new DeckBase(DeckLength(), DeckWidth());
             this.BindingContext = newDeck;
-            
         }
 
         private void Button_OnClicked(object sender, EventArgs e)
@@ -27,7 +26,6 @@ namespace ConstrucApp
             int width = Convert.ToInt32(b);
             DeckBase newDeck = new DeckBase(length, width);
             
-
             DisplayInfo(newDeck);
         }
 
@@ -35,7 +33,6 @@ namespace ConstrucApp
         {
             MaterialsGrid.IsVisible = true;
             ReqMaterials.Text = a.ReqDeckBaseMaterials();
-     
         }
 
         private int DeckLength()
