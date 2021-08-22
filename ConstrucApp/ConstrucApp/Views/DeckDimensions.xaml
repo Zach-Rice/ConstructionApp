@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConstrucApp.DeckDimensions">
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Build Your Deck" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Grid x:Name="Input" Margin="20,50,20,0" HorizontalOptions="Fill" IsVisible="True"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width=".5*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Text="Enter Length in feet:"  FontSize="15" HorizontalTextAlignment="Center"/>
+            <Editor x:Name="Length" Grid.Column="1" Grid.Row="0" FontSize="Body" AutoSize="TextChanges" HorizontalOptions="Fill"  Keyboard="Numeric"/>
+            <Label Grid.Column="0" Grid.Row="1" Text="Enter Width in feet:"  FontSize="15" HorizontalTextAlignment="Center" />
+            <Editor x:Name="Width" Grid.Column="1" Grid.Row="1" FontSize="Body" AutoSize="TextChanges" Keyboard="Numeric" />
+            <Label Grid.Column="2" Grid.Row="0" Text="FT" FontSize="Body"/>
+            <Label Grid.Column="2" Grid.Row="1" Text="FT" FontSize="Body" />
+        </Grid>
+            <Button x:Name="InputButton" Text="Enter" HorizontalOptions="Center" Clicked="Button_OnClicked" Margin="0,25,0,0"/>
+        <Grid x:Name="Confirmation" IsVisible="false" Margin="20, 40, 20, 20" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width=".5*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Text="Confirm Dimensions" HorizontalOptions="Center" FontSize="Title" Margin="0,0,0,20"/>
+            <Label Grid.Column="0" Grid.Row="1" Text="Length:" HorizontalOptions="Center" FontSize="Large" />
+            <Label Grid.Column="0" Grid.Row="2" Text="Width:" HorizontalOptions="Center" FontSize="Large"  />
+            <Label Grid.Column="1" Grid.Row="1" x:Name="lengthConfirm" Text="{Binding Source={x:Reference Length}, Path=Text}"  HorizontalOptions="Center" FontSize="Large"/>
+            <Label Grid.Column="1" Grid.Row="2" x:Name="widthConfirm" Text="{Binding Source={x:Reference Width}, Path=Text}" HorizontalOptions="Center" FontSize="Large"/>
+            <Label Grid.Column="2" Grid.Row="1" Text="FT" FontSize="Large"/>
+            <Label Grid.Column="2" Grid.Row="2" Text="FT" FontSize="Large"/>
+        </Grid>
+        <Button x:Name="ConfirmButton" IsVisible="false" HorizontalOptions="Center" Text="Confirm Dimensions" Clicked="OnConfirmClick" FontSize="Large" />
+    </StackLayout>
+</ContentPage>

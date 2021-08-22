@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Convert = System.Convert;
 
 namespace ConstrucApp
 {
@@ -9,18 +10,15 @@ namespace ConstrucApp
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new DeckDimensions());
         }
 
         protected override void OnStart()
         {
         }
-
         protected override void OnSleep()
         {
         }
-
         protected override void OnResume()
         {
         }

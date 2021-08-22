@@ -4,6 +4,7 @@ namespace ConstrucApp
 {
     public class DeckBase : DeckInfo
     {
+        #region fields
         public int MainDeckLength;
         public int ExtraDeckLength;
         public int NumMainDeckBoards;
@@ -28,16 +29,16 @@ namespace ConstrucApp
             NumMainBeams = NumMainBoards(TotalDeckLengthFT, MainBeamLength, NumBeamAcross);
             NumExtraBeam = ExtraBeamLength != 0 ? 1 : 0;
         }
-             
+        #endregion
+        #region methods
         public string ReqDeckBaseMaterials()
         {
-            string output = $"Decking\n\tNum of {MainDeckLength}FT boards: {NumMainDeckBoards}";
-            if (NumExtraDeckBoards != 0) { output += $"\n\tNum of {ExtraDeckLength} FT boards: {NumExtraDeckBoards}"; }
-            output += $"\nDeck Frame\n\tNum of {MainBeamLength}FT boards: {NumMainBeams}";
-            if (NumExtraBeam != 0) { output += $"\n\tNum of {ExtraBeamLength} FT boards: {NumExtraBeam}"; }
+            string output = $"5/8x6x{MainDeckLength}FT boards: {NumMainDeckBoards}";
+            if (NumExtraDeckBoards != 0) { output += $"\n5/8x{ExtraDeckLength} FT boards: {NumExtraDeckBoards}"; }
+            output += $"\n\n2x8x{MainBeamLength}FT boards: {NumMainBeams}";
+            if (NumExtraBeam != 0) { output += $"\n2x{ExtraBeamLength} FT boards: {NumExtraBeam}"; }
             return output;
         }
-        
         private int ExtraBoardLength(int param, int length, int across, int? sideBeam)
         {
             int extraLength = 0;
@@ -47,16 +48,15 @@ namespace ConstrucApp
                 int newExtra = totalExtraLength % length;
                 extraLength += newExtra;
             }
-
             if (sideBeam % length != 0)
             {
                 int side = 0;
-                if (sideBeam != null) {side = Convert.ToInt32(sideBeam);}
+                if (sideBeam != null) { side = Convert.ToInt32(sideBeam); }
                 int extra = (side % length) * 2;
                 int newExtra = extra % length;
                 extraLength += newExtra;
             }
-            if(extraLength > length) { extraLength = extraLength % length; }
+            if (extraLength > length) { extraLength = extraLength % length; }
             if (extraLength != 0) { extraLength = DeckBoardLength(extraLength); }
             return extraLength;
         }
@@ -71,7 +71,6 @@ namespace ConstrucApp
                 int extraMain = totalExtraLength / length;
                 totalMainBoards += extraMain;
             }
-
             if (param == TotalDeckWidthFT && length == MainBeamLength)
             {
                 int numSideBoard = (param / length) * 2;
@@ -104,5 +103,6 @@ namespace ConstrucApp
             }
             return boardLength;
         }
+        #endregion
     }
 }
