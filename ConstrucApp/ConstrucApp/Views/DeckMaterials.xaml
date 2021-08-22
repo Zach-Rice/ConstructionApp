@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConstrucApp.Views.DeckMaterials"
+             x:Name="thisPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3" >
+                <Label Text="Required Materials" HorizontalOptions="Center" FontSize="Title" TextColor="White" />
+            </Frame>
+            <Label x:Name="Req" FontSize="Title" HorizontalOptions="CenterAndExpand" Margin="0,50,0,0" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
